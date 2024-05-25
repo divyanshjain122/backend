@@ -1,9 +1,12 @@
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const dotenv = require("dotenv");
+dotenv.config();
+const env = process.env;
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
-  cors: "http://localhost:5174/",
+  cors: env.CORS_ORIGIN || "http://localhost:5173",
 });
 
 const allUsers = {};
