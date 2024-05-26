@@ -85,4 +85,5 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(3000);
+httpServer.listen(env.PORT || 3000, () => {
+});
